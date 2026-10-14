@@ -26,11 +26,11 @@ def ozbudak_dose_response( x_out , y_init , marker ):
     solution = solve_ivp( ozbudak_model, t_span, init , method='RK45', args=param )
     
     LacY = solution.y[1]
-    y_end =
+    y_end = LacY[-1]
     
     plt.plot( x_out , y_end , marker , fillstyle='none') 
 
-    return 
+    return y_end
     
 ##
 ## Main
@@ -41,6 +41,6 @@ for x_out in range(11):
     y_init = ozbudak_dose_response( x_out , y_init , 'ko' )
 
 for x_out in reversed( range(11) ):
-    
+    y_init = ozbudak_dose_response( x_out, y_init, 'r+')
 
 plt.show()

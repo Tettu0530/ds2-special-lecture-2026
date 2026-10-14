@@ -8,8 +8,8 @@ def ozbudak_model( t , init , *param ):
 
     [ alpha , beta , rho , x_out ] = param
     
-    dxdt = 
-    dydt = 
+    dxdt = -x + alpha * x_out + beta * y
+    dydt = (x ** 2) / (rho + (x ** 2)) - y
     
     return [ dxdt , dydt ] 
 

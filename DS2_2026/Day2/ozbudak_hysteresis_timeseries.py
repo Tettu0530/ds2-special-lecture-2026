@@ -8,8 +8,8 @@ def ozbudak_model( t , init , *param ):
 
     [ alpha , beta , rho , x_out ] = param
 
-    dxdt = 
-    dydt = 
+    dxdt = -x + alpha * x_out + beta * y
+    dydt = (x ** 2) / (rho + (x ** 2)) - y
     
     return [ dxdt , dydt ] 
 
@@ -37,11 +37,11 @@ def hysteresis_timeseries():
     ## Repeat after elimitating TMG_out (x_out)
     ##
     
-    x_init = 
-    y_init = 
+    x_init = TMG[-1]
+    y_init = LacY[-1]
     init = [ x_init , y_init ]
     
-    x_out = 
+    x_out = 0
     param = [ alpha , beta , rho , x_out ]
     
     t_span = [ 60 , 120 ]
