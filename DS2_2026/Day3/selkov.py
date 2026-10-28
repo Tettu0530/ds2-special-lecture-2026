@@ -9,9 +9,9 @@ def selkov_model( t , init , *param ):
     [ a , b ] = param
 
 
-    v1 = 
-    v2 = 
-    v3 = 
+    v1 = b
+    v2 = a * y + (x ** 2) * y
+    v3 = x
     
     dxdt = v2 - v3
     dydt = v1 - v2

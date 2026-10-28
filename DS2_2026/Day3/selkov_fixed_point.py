@@ -8,7 +8,7 @@ a = 0.06
 b = 0.6
 
 # 交点の座標を求める
-solutions = sp.solve( [    ,    ]  , ( x , y ) )
+solutions = sp.solve( [-x + a * y + (x ** 2) * y, b - a * y - (x ** 2) * y]  , ( x , y ) )
 
 print(solutions)
 

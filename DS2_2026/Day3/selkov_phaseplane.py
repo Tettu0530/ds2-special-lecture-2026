@@ -9,9 +9,9 @@ def selkov_model( t , init , *param ):
     [ a , b ] = param
 
 
-    v1 = 
-    v2 = 
-    v3 = 
+    v1 = b
+    v2 = a * y + (x ** 2) * y
+    v3 = x
     
     dxdt = v2 - v3
     dydt = v1 - v2
@@ -33,12 +33,12 @@ solution = solve_ivp( selkov_model, t_span, init, t_eval=t_eval, method='RK45', 
 ADP = solution.y[0]
 F6P = solution.y[1]
 
-plt.plot( , , 'k-')
+plt.plot(ADP, F6P, 'k-')
 
 x = np.linspace( 0, 3, 100 )
-x_null = x / ( a + x**2 ) # The nullcline for dydt 
-y_null = # The nullcline for dydt 
+x_null = x / ( a + x ** 2 ) # The nullcline for dydt 
+y_null = b / ( a + x ** 2) # The nullcline for dydt 
 
-plt.plot( x , x_null , 'r-')
-plt.plot( , , 'b-')
+plt.plot( x, x_null, 'r-')
+plt.plot( x, y_null, 'b-')
 plt.show()
