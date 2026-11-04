@@ -25,13 +25,13 @@ for a_val , b_val in zip( A.flatten() , B.flatten() ):
     J_num = J_sym.subs( [ ( x , fix_x ) , ( y , fix_y ) , ( a , a_val ), ( b , b_val ) ] )
     eig1, eig2 = J_num.eigenvals().keys()
 
-    if          : # eig1 が実数ならば if 節に入る
+    if eig1.is_real : # eig1 が実数ならば if 節に入る
         if eig1 < 0 and eig2 < 0 : # 実数・安定
             plt.plot( a_val , b_val , 'ko' ) 
         else : # 実数・不安定
             plt.plot( a_val , b_val , 'ko' , fillstyle='none') 
     else :
-        if         : # eig1 の実部が負であれば if 節に入る。すなわち複素数・安定の場合。
+        if re(eig1) < 0 : # eig1 の実部が負であれば if 節に入る。すなわち複素数・安定の場合。
             plt.plot( a_val , b_val , 'ro' ) 
         else : # 複素数・不安定
             plt.plot( a_val , b_val , 'ro' , fillstyle='none') 
